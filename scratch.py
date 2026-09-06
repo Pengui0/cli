@@ -22,6 +22,19 @@ def reverse_string(s: str) -> str:
     return reverse_string(s[1:]) + s[0]
 
 
+def is_palindrome(s: str) -> bool:
+    """
+    Checks if a string is a palindrome by reusing the reverse_string function.
+
+    Why reuse reverse_string over a stack-based approach:
+    We rejected using a stack-based approach (such as pushing characters onto a stack
+    and then popping them to compare with the original string) for simplicity and
+    to promote clean code reuse. Reusing our existing reverse_string function directly
+    demonstrates functional composition and is highly straightforward.
+    """
+    return s == reverse_string(s)
+
+
 if __name__ == "__main__":
     # Simple test cases to verify the implementation
     test_cases = ["hello", "Python", "a", "", "recursion"]
@@ -29,4 +42,19 @@ if __name__ == "__main__":
         reversed_test = reverse_string(test)
         print(f"Original: '{test}' -> Reversed: '{reversed_test}'")
         assert reversed_test == test[::-1], f"Failed for {test}"
-    print("All tests passed successfully!")
+    print("All reversal tests passed successfully!")
+
+    # Test cases for palindrome check
+    palindrome_cases = [
+        ("radar", True),
+        ("racecar", True),
+        ("hello", False),
+        ("a", True),
+        ("", True),
+        ("palindrome", False),
+    ]
+    for test, expected in palindrome_cases:
+        result = is_palindrome(test)
+        print(f"Is palindrome: '{test}' -> Expected: {expected}, Got: {result}")
+        assert result == expected, f"Failed for {test}: expected {expected}, got {result}"
+    print("All palindrome tests passed successfully!")
