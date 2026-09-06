@@ -1,0 +1,1 @@
+Add a second function to scratch.py that checks if a string is a palindrome, reusing the reverse function. Add a comment noting we rejected using a stack-based approach for simplicity.
