@@ -1,0 +1,1 @@
+Create a file called scratch.py with a Python function that reverses a string, and add a comment explaining why we chose recursion over slicing.
